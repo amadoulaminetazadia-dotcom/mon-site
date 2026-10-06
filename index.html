@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FootShop - Maillots de Football</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                FOOT<span>SHOP</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#maillots">Maillots</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button class="cart-btn" onclick="ouvrirPanier()">
+                🛒 Panier <span id="cart-count">0</span>
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- ACCUEIL -->
+    <section class="hero" id="accueil">
+
+        <div class="hero-content">
+
+            <p class="small-title">COLLECTION 2026</p>
+
+            <h1>
+                Porte les couleurs<br>
+                de ton <span>équipe.</span>
+            </h1>
+
+            <p>
+                Découvre notre collection de maillots de football
+                authentiques et tendance.
+            </p>
+
+            <a href="#maillots" class="hero-btn">
+                Voir les maillots
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=700&q=80"
+                 alt="Maillot de football">
+        </div>
+
+    </section>
+
+
+    <!-- PRODUITS -->
+    <section class="products-section" id="maillots">
+
+        <div class="section-title">
+            <p>NOTRE COLLECTION</p>
+            <h2>Maillots populaires</h2>
+        </div>
+
+        <div class="products" id="products-container">
+
+            <!-- Produit 1 -->
+            <div class="product">
+
+                <div class="product-image">
+                    <img src="img3.jfif"
+                         alt="Maillot football">
+                </div>
+
+                <div class="product-info">
+                    <h3>Maillot Football Classic</h3>
+                    <p class="category">Collection 2026</p>
+
+                    <div class="product-bottom">
+                        <strong>15 000 FCFA</strong>
+
+                        <button onclick="ajouterAuPanier('Maillot Football Classic', 15000)">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Produit 2 -->
+            <div class="product">
+
+                <div class="product-image">
+                    <img src="img4.jfif"
+                         alt="Maillot football">
+                </div>
+
+                <div class="product-info">
+                    <h3>Maillot Football Pro</h3>
+                    <p class="category">Collection 2026</p>
+
+                    <div class="product-bottom">
+                        <strong>18 000 FCFA</strong>
+
+                        <button onclick="ajouterAuPanier('Maillot Football Pro', 18000)">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Produit 3 -->
+            <div class="product">
+
+                <div class="product-image">
+                    <img src="img2.jfif"
+                         alt="Maillot football">
+                </div>
+
+                <div class="product-info">
+                    <h3>Maillot Premium</h3>
+                    <p class="category">Collection 2026</p>
+
+                    <div class="product-bottom">
+                        <strong>20 000 FCFA</strong>
+
+                        <button onclick="ajouterAuPanier('Maillot Premium', 20000)">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Produit 4 -->
+            <div class="product">
+
+                <div class="product-image">
+                    <img src="img1.jfif"
+                         alt="Maillot football">
+                </div>
+
+                <div class="product-info">
+                    <h3>Maillot Édition Fan</h3>
+                    <p class="category">Collection 2026</p>
+
+                    <div class="product-bottom">
+                        <strong>12 500 FCFA</strong>
+
+                        <button onclick="ajouterAuPanier('Maillot Édition Fan', 12500)">
+                            Ajouter
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+          <a href="tel:+221 77 672 49 00" class="wave-btn">
+    Payer avec Wave
+</a>
+
+    <!-- À PROPOS -->
+    <section class="about" id="apropos">
+
+        <div>
+            <p class="small-title">À PROPOS</p>
+
+            <h2>
+                Ton style.<br>
+                Ton équipe.
+            </h2>
+        </div>
+
+        <p>
+            FootShop est une boutique dédiée aux passionnés de football.
+            Nous proposons des maillots pour les supporters et les joueurs,
+            avec plusieurs modèles et tailles disponibles.
+        </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+            <p>CONTACT</p>
+            <h2>Besoin d'informations ?</h2>
+        </div>
+       
+
+        <form onsubmit="envoyerMessage(event)">
+
+            <input type="text" id="nom" placeholder="Votre nom" required>
+
+            <input type="email" id="email" placeholder="Votre email" required>
+
+            <textarea id="message" placeholder="Votre message" required></textarea>
+
+            <button type="submit">
+                Envoyer
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- PANIER -->
+    <div class="cart-overlay" id="cart-overlay">
+
+        <div class="cart">
+
+            <button class="close-cart" onclick="fermerPanier()">
+                ×
+            </button>
+
+            <h2>Mon panier</h2>
+
+            <div id="cart-items">
+                <p class="empty-cart">
+                    Votre panier est vide.
+                </p>
+            </div>
+
+            <div class="cart-total">
+                <span>Total :</span>
+                <strong id="cart-total">0 FCFA</strong>
+            </div>
+
+            <button class="checkout" onclick="commander()">
+                Commander
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="logo">
+            FOOT<span>SHOP</span>
+        </div>
+
+        <p>
+            © 2026 FootShop - Tous droits réservés.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html
